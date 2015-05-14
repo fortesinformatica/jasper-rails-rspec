@@ -9,11 +9,11 @@ RSpec::Matchers.define :contain do |string|
     @pdf.strings.include? string
   end
 
-  failure_message_for_should do |response|
+  failure_message do |response|
     "expected that the PDF text would contain #{expected}. It only contains: #{@pdf.strings.to_s}"
   end
 
-  failure_message_for_should_not do |response|
+  failure_message_when_negated do |response|
     "expected that the PDF text would not contain #{expected}. But it does: #{@pdf.strings.to_s}"
   end
 end
